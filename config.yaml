@@ -1,0 +1,5 @@
+port: 8080
+allowed_extensions: ["pdf", "jpg"]
+max_files_per_task: 3
+max_concurrent_tasks: 3
+
