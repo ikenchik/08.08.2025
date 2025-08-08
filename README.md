@@ -69,6 +69,7 @@ go get github.com/gorilla/mux
 Возвращает id задачи, на которое в последующих командах заменяется {task_id}.
 
 2. Добавление ссылки на файл:
+
 Ссылка на файл вместо {paste_url}
    ``` bash
     curl -X POST -d "url={paste_url}" http://localhost:8080/tasks/{task_id}/urls
