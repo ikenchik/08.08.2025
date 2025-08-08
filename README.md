@@ -53,7 +53,7 @@ go get -u
 // из папки проекта
 go run cmd/main.go
 ```
-### Сторониие зависимости
+### Сторониие пакеты
 ``` bash
 go get gopkg.in/yaml.v3
 go get github.com/gorilla/mux
