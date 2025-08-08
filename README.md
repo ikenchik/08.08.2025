@@ -29,7 +29,7 @@
   {
     "id": "task_id",
     "status": "PENDING|PROCESSING|COMPLETED|FAILED",
-    "urls": [links_to_files],
+    "urls": "[links_to_files]",
     "archive": "download_url",
     "created_at": "date_time"
   }
