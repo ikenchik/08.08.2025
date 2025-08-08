@@ -29,6 +29,55 @@
   {
     "id": "task_id",
     "status": "PENDING|PROCESSING|COMPLETED|FAILED",
+    "urls": [links_to_files],
     "archive": "download_url",
-    "errors": {"url": "error_message"}
+    "created_at": "date_time"
   }
+```
+
+## Особенности реализации
+
+1. Пакетная структура и MVC
+2. State Pattern, Синхронизация, Фоновая обработка
+3. Обработка HTTP-запросов
+4. Yaml-конфиг и инииализация состояния
+5. Обработка ошибок и статусов
+6. Facade Pattern
+
+## Запуск
+
+Файл main.go в папке cmd запускает приложение.
+
+``` bash
+go get -u
+// из папки проекта
+go run cmd/main.go
+```
+### Сторониие зависимости
+``` bash
+go get gopkg.in/yaml.v3
+go get github.com/gorilla/mux
+```
+
+## Тестирование
+
+### Командная строка
+1. Создание задачи:
+  ``` bash
+   curl -X POST http://localhost:8080/tasks
+  ```
+Возвращает id задачи, на которое в последующих командах заменяется {task_id}.
+
+2. Добавление ссылки на файл:
+   ``` bash
+    curl -X POST -d "url=paste_url" http://localhost:8080/tasks/{task_id}/urls
+   ```
+3. Проверка статуса:
+   ``` bash
+    curl http://localhost:8080/tasks/{task_id}
+   ```
+
+### Postman
+1. POST http://localhost:8080/tasks
+2. POST http://localhost:8080/tasks/{task_id}/urls
+3. GET http://localhost:8080/tasks/{task_id}
